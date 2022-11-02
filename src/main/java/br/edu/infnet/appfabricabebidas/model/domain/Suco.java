@@ -2,16 +2,9 @@ package br.edu.infnet.appfabricabebidas.model.domain;
 
 public class Suco extends Bebida {
 
-    private final String fruta;
-    private final Boolean adicaoAcucar;
-    private final Float pctSucoFruta;
-
-    public Suco(String nome, String descricao, Float valor, String fruta, Boolean adicaoAcucar, Float pctSucoFruta) {
-        super(nome, descricao, valor);
-        this.fruta = fruta;
-        this.adicaoAcucar = adicaoAcucar;
-        this.pctSucoFruta = pctSucoFruta;
-    }
+    private String fruta;
+    private Boolean adicaoAcucar;
+    private Float pctSucoFruta;
 
     public String getFruta() {
         return fruta;
@@ -23,5 +16,22 @@ public class Suco extends Bebida {
 
     public Float getPctSucoFruta() {
         return pctSucoFruta;
+    }
+
+    public void setFruta(String fruta) {
+        this.fruta = fruta;
+    }
+
+    public void setAdicaoAcucar(Boolean adicaoAcucar) {
+        this.adicaoAcucar = adicaoAcucar;
+    }
+
+    public void setPctSucoFruta(Float pctSucoFruta) {
+        this.pctSucoFruta = pctSucoFruta;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ";" + fruta + ";" + adicaoAcucar + ";" + pctSucoFruta;
     }
 }

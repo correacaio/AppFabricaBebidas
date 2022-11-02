@@ -1,7 +1,6 @@
 package br.edu.infnet.appfabricabebidas;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Refrigerante;
-import br.edu.infnet.appfabricabebidas.model.domain.builder.RefrigeranteConstrutor;
 import java.util.List;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -12,34 +11,34 @@ public class RefrigeranteTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        Refrigerante refrigerante1 = RefrigeranteConstrutor.novo()
-            .nome("Coca Cola")
-            .descricao("Classico")
-            .valor(8F)
-            .gaseificado(true)
-            .gramasAcucar(100)
-            .sabor("Coca")
-            .constroi();
+        System.out.println("Cadastro Refrigerante: ");
 
-        Refrigerante refrigerante2 = RefrigeranteConstrutor.novo()
-            .nome("Pepsi")
-            .descricao("Pode ser?")
-            .valor(7F)
-            .gaseificado(true)
-            .gramasAcucar(110)
-            .sabor("Coca")
-            .constroi();
+        Refrigerante refrigerante1 = new Refrigerante();
+        refrigerante1.setNome("Coca Cola");
+        refrigerante1.setDescricao("Classico");
+        refrigerante1.setValor(8F);
+        refrigerante1.setGaseificado(true);
+        refrigerante1.setGramasAcucar(100);
+        refrigerante1.setSabor("Coca");
 
-        Refrigerante refrigerante3 = RefrigeranteConstrutor.novo()
-            .nome("Dolly Coca")
-            .descricao("Dollynho")
-            .valor(4F)
-            .gaseificado(false)
-            .gramasAcucar(80)
-            .sabor("Coca")
-            .constroi();
+        Refrigerante refrigerante2 = new Refrigerante();
+        refrigerante2.setNome("Pepsi");
+        refrigerante2.setDescricao("Pode ser?");
+        refrigerante2.setValor(7F);
+        refrigerante2.setGaseificado(true);
+        refrigerante2.setGramasAcucar(110);
+        refrigerante2.setSabor("Coca");
+
+        Refrigerante refrigerante3 = new Refrigerante();
+        refrigerante3.setNome("Dolly Coca");
+        refrigerante3.setDescricao("Dollynho");
+        refrigerante3.setValor(4F);
+        refrigerante3.setGaseificado(false);
+        refrigerante3.setGramasAcucar(80);
+        refrigerante3.setSabor("Coca");
 
         List.of(refrigerante1, refrigerante2, refrigerante3)
+            .stream().map(refrigerante -> "Refrigerante - " + refrigerante)
             .forEach(System.out::println);
     }
 }

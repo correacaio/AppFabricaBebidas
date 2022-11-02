@@ -2,15 +2,9 @@ package br.edu.infnet.appfabricabebidas.model.domain;
 
 public class Empresa {
 
-    private final String nome;
-    private final String cnpj;
-    private final Integer anoFundacao;
-
-    public Empresa(String nome, String cnpj, Integer anoFundacao) {
-        this.nome = nome;
-        this.cnpj = cnpj;
-        this.anoFundacao = anoFundacao;
-    }
+    private String nome;
+    private String cnpj;
+    private Integer anoFundacao;
 
     public String getNome() {
         return nome;
@@ -22,5 +16,22 @@ public class Empresa {
 
     public Integer getAnoFundacao() {
         return anoFundacao;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public void setAnoFundacao(Integer anoFundacao) {
+        this.anoFundacao = anoFundacao;
+    }
+
+    @Override
+    public String toString() {
+        return nome + ";" + cnpj + ";" + anoFundacao;
     }
 }

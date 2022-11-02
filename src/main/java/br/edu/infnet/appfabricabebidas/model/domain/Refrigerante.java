@@ -2,26 +2,36 @@ package br.edu.infnet.appfabricabebidas.model.domain;
 
 public class Refrigerante extends Bebida {
 
-    private final Boolean gaseificado;
-    private final int gramasAcucar;
-    private final String sabor;
-
-    public Refrigerante(String nome, String descricao, float valor, Boolean gaseificado, int gramasAcucar, String sabor) {
-        super(nome, descricao, valor);
-        this.gaseificado = gaseificado;
-        this.gramasAcucar = gramasAcucar;
-        this.sabor = sabor;
-    }
+    private Boolean gaseificado;
+    private Integer gramasAcucar;
+    private String sabor;
 
     public Boolean getGaseificado() {
         return gaseificado;
     }
 
-    public int getGramasAcucar() {
+    public Integer getGramasAcucar() {
         return gramasAcucar;
     }
 
     public String getSabor() {
         return sabor;
+    }
+
+    public void setGaseificado(Boolean gaseificado) {
+        this.gaseificado = gaseificado;
+    }
+
+    public void setGramasAcucar(Integer gramasAcucar) {
+        this.gramasAcucar = gramasAcucar;
+    }
+
+    public void setSabor(String sabor) {
+        this.sabor = sabor;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ";" + gaseificado + ";" + gramasAcucar + ";" + sabor;
     }
 }

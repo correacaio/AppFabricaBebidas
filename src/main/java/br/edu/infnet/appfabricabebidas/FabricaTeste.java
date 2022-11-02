@@ -1,7 +1,6 @@
 package br.edu.infnet.appfabricabebidas;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Fabrica;
-import br.edu.infnet.appfabricabebidas.model.domain.builder.FabricaConstrutor;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
@@ -14,25 +13,25 @@ public class FabricaTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        Fabrica fabrica1 = FabricaConstrutor.novo()
-                .localizacao("Sao Carlos - SP")
-                .tamanho("P")
-                .dataInicializacao(LocalDate.of(2012, Month.APRIL, 20))
-                .constroi();
+        System.out.println("Cadastro Fabrica:");
 
-        Fabrica fabrica2 = FabricaConstrutor.novo()
-            .localizacao("Santa Lucia - SP")
-            .tamanho("PP")
-            .dataInicializacao(LocalDate.of(2095, Month.JUNE, 30))
-            .constroi();
+        Fabrica fabrica1 = new Fabrica();
+        fabrica1.setLocalizacao("Sao Carlos - SP");
+        fabrica1.setTamanho("P");
+        fabrica1.setDataInicializacao(LocalDate.of(2012, Month.APRIL, 20));
 
-        Fabrica fabrica3 = FabricaConstrutor.novo()
-            .localizacao("Fortaleza - CE")
-            .tamanho("M")
-            .dataInicializacao(LocalDate.of(2022, Month.NOVEMBER, 22))
-            .constroi();
+        Fabrica fabrica2 = new Fabrica();
+        fabrica2.setLocalizacao("Santa Lucia - SP");
+        fabrica2.setTamanho("PP");
+        fabrica2.setDataInicializacao(LocalDate.of(2095, Month.JUNE, 30));
+
+        Fabrica fabrica3 = new Fabrica();
+        fabrica3.setLocalizacao("Fortaleza - CE");
+        fabrica3.setTamanho("M");
+        fabrica3.setDataInicializacao(LocalDate.of(2022, Month.NOVEMBER, 22));
 
         List.of(fabrica1, fabrica2, fabrica3)
+            .stream().map(fabrica -> "Fabrica - " + fabrica)
             .forEach(System.out::println);
     }
 }

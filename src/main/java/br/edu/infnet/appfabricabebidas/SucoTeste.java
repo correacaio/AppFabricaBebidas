@@ -1,7 +1,6 @@
 package br.edu.infnet.appfabricabebidas;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Suco;
-import br.edu.infnet.appfabricabebidas.model.domain.builder.SucoConstrutor;
 import java.util.List;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -12,34 +11,34 @@ public class SucoTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        Suco suco1 = SucoConstrutor.novo()
-            .nome("Del Valle Laranja")
-            .descricao("Laranja?")
-            .valor(6F)
-            .fruta("Laranja")
-            .adicaoAcucar(true)
-            .pctSucoFruta(5.5F)
-            .constroi();
+        System.out.println("Cadastro de Suco: ");
 
-        Suco suco2 = SucoConstrutor.novo()
-            .nome("Del Valle Uva")
-            .descricao("Suco. Nao vinho.")
-            .valor(6.5F)
-            .fruta("Uva")
-            .adicaoAcucar(true)
-            .pctSucoFruta(6.2F)
-            .constroi();
+        Suco suco1 = new Suco();
+        suco1.setNome("Del Valle Laranja");
+        suco1.setDescricao("Laranja?");
+        suco1.setValor(6F);
+        suco1.setFruta("Laranja");
+        suco1.setAdicaoAcucar(true);
+        suco1.setPctSucoFruta(5.5F);
 
-        Suco suco3 = SucoConstrutor.novo()
-            .nome("Del Valle Manga")
-            .descricao("Existe?")
-            .valor(5.8F)
-            .fruta("Manga")
-            .adicaoAcucar(false)
-            .pctSucoFruta(5.2F)
-            .constroi();
+        Suco suco2 = new Suco();
+        suco2.setNome("Del Valle Uva");
+        suco2.setDescricao("Suco. Nao vinho.");
+        suco2.setValor(6.5F);
+        suco2.setFruta("Uva");
+        suco2.setAdicaoAcucar(true);
+        suco2.setPctSucoFruta(6.2F);
+
+        Suco suco3 = new Suco();
+        suco3.setNome("Del Valle Manga");
+        suco3.setDescricao("Existe?");
+        suco3.setValor(5.8F);
+        suco3.setFruta("Manga");
+        suco3.setAdicaoAcucar(false);
+        suco3.setPctSucoFruta(5.2F);
 
         List.of(suco1, suco2, suco3)
+            .stream().map(suco -> "Suco - " + suco)
             .forEach(System.out::println);
     }
 }

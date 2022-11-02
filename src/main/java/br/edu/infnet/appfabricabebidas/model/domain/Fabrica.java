@@ -4,15 +4,9 @@ import java.time.LocalDate;
 
 public class Fabrica {
 
-    private final String localizacao;
-    private final LocalDate dataInicializacao;
-    private final String tamanho;
-
-    public Fabrica(String localizacao, LocalDate dataInicializacao, String tamanho) {
-        this.localizacao = localizacao;
-        this.dataInicializacao = dataInicializacao;
-        this.tamanho = tamanho;
-    }
+    private String localizacao;
+    private LocalDate dataInicializacao;
+    private String tamanho;
 
     public String getLocalizacao() {
         return localizacao;
@@ -24,5 +18,22 @@ public class Fabrica {
 
     public String getTamanho() {
         return tamanho;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public void setDataInicializacao(LocalDate dataInicializacao) {
+        this.dataInicializacao = dataInicializacao;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    @Override
+    public String toString() {
+        return localizacao + ";" + dataInicializacao + ";" + tamanho;
     }
 }

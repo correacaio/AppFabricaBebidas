@@ -2,15 +2,9 @@ package br.edu.infnet.appfabricabebidas.model.domain;
 
 public abstract class Bebida {
 
-    private final String nome;
-    private final String descricao;
-    private final Float valor;
-
-    public Bebida(String nome, String descricao, Float valor) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.valor = valor;
-    }
+    private String nome;
+    private String descricao;
+    private Float valor;
 
     public String getNome() {
         return nome;
@@ -22,5 +16,22 @@ public abstract class Bebida {
 
     public Float getValor() {
         return valor;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setValor(Float valor) {
+        this.valor = valor;
+    }
+
+    @Override
+    public String toString() {
+        return nome + ";" + descricao + ";" + valor;
     }
 }

@@ -2,16 +2,9 @@ package br.edu.infnet.appfabricabebidas.model.domain;
 
 public class Cerveja extends Bebida {
 
-    private final String tipo;
-    private final Float pctAlcool;
-    private final String familia;
-
-    public Cerveja(String nome, String descricao, Float valor, String tipo, Float pctAlcool, String familia) {
-        super(nome, descricao, valor);
-        this.tipo = tipo;
-        this.pctAlcool = pctAlcool;
-        this.familia = familia;
-    }
+    private String tipo;
+    private Float pctAlcool;
+    private String familia;
 
     public String getTipo() {
         return tipo;
@@ -25,8 +18,20 @@ public class Cerveja extends Bebida {
         return familia;
     }
 
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setPctAlcool(Float pctAlcool) {
+        this.pctAlcool = pctAlcool;
+    }
+
+    public void setFamilia(String familia) {
+        this.familia = familia;
+    }
+
     @Override
     public String toString() {
-        return tipo + ";" + pctAlcool + ";" + familia;
+        return super.toString() + ";" + tipo + ";" + pctAlcool + ";" + familia;
     }
 }

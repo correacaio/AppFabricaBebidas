@@ -1,5 +1,6 @@
 package br.edu.infnet.appfabricabebidas;
 
+import br.edu.infnet.appfabricabebidas.controller.CervejaController;
 import br.edu.infnet.appfabricabebidas.model.domain.Cerveja;
 import java.util.List;
 import org.springframework.boot.ApplicationArguments;
@@ -14,6 +15,7 @@ public class CervejaTeste implements ApplicationRunner {
         System.out.println("Cadastro de Cerveja:");
 
         Cerveja cerveja1 = new Cerveja();
+        cerveja1.setId(0);
         cerveja1.setNome("Brahma");
         cerveja1.setDescricao("Cerveja brasileira");
         cerveja1.setValor(3.50F);
@@ -22,6 +24,7 @@ public class CervejaTeste implements ApplicationRunner {
         cerveja1.setFamilia("Lager");
 
         Cerveja cerveja2 = new Cerveja();
+        cerveja2.setId(1);
         cerveja2.setNome("Skol");
         cerveja2.setDescricao("Outra cerveja brasileira");
         cerveja2.setValor(3.40F);
@@ -30,6 +33,7 @@ public class CervejaTeste implements ApplicationRunner {
         cerveja2.setFamilia("Lager");
 
         Cerveja cerveja3 = new Cerveja();
+        cerveja3.setId(2);
         cerveja3.setNome("American Ipa Baden Baden");
         cerveja3.setDescricao("Origem artesanal");
         cerveja3.setValor(12F);
@@ -37,8 +41,8 @@ public class CervejaTeste implements ApplicationRunner {
         cerveja3.setPctAlcool(5.5F);
         cerveja3.setFamilia("Ale");
 
-        List.of(cerveja1, cerveja2, cerveja3)
-            .stream().map(cerveja -> "Cerveja - " + cerveja)
-            .forEach(System.out::println);
+        List
+            .of(cerveja1, cerveja2, cerveja3)
+            .forEach(CervejaController::incluir);
     }
 }

@@ -2,9 +2,14 @@ package br.edu.infnet.appfabricabebidas.model.domain;
 
 public class Empresa {
 
+    private Integer id;
     private String nome;
     private String cnpj;
     private Integer anoFundacao;
+
+    public Integer getId() {
+        return id;
+    }
 
     public String getNome() {
         return nome;
@@ -16,6 +21,10 @@ public class Empresa {
 
     public Integer getAnoFundacao() {
         return anoFundacao;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setNome(String nome) {
@@ -32,6 +41,6 @@ public class Empresa {
 
     @Override
     public String toString() {
-        return nome + ";" + cnpj + ";" + anoFundacao;
+        return id + ";" + nome + ";" + cnpj + ";" + anoFundacao;
     }
 }

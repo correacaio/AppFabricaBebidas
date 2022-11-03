@@ -1,5 +1,6 @@
 package br.edu.infnet.appfabricabebidas;
 
+import br.edu.infnet.appfabricabebidas.controller.FabricaController;
 import br.edu.infnet.appfabricabebidas.model.domain.Cerveja;
 import br.edu.infnet.appfabricabebidas.model.domain.Empresa;
 import br.edu.infnet.appfabricabebidas.model.domain.Fabrica;
@@ -20,6 +21,7 @@ public class FabricaTeste implements ApplicationRunner {
         System.out.println("Cadastro Fabrica:");
 
         Cerveja cerveja = new Cerveja();
+        cerveja.setId(0);
         cerveja.setNome("Brahma");
         cerveja.setDescricao("Cerveja brasileira");
         cerveja.setValor(3.50F);
@@ -28,6 +30,7 @@ public class FabricaTeste implements ApplicationRunner {
         cerveja.setFamilia("Lager");
 
         Refrigerante refrigerante = new Refrigerante();
+        refrigerante.setId(1);
         refrigerante.setNome("Coca Cola");
         refrigerante.setDescricao("Classico");
         refrigerante.setValor(8F);
@@ -36,6 +39,7 @@ public class FabricaTeste implements ApplicationRunner {
         refrigerante.setSabor("Coca");
 
         Suco suco = new Suco();
+        suco.setId(2);
         suco.setNome("Del Valle Laranja");
         suco.setDescricao("Laranja?");
         suco.setValor(6F);
@@ -44,11 +48,13 @@ public class FabricaTeste implements ApplicationRunner {
         suco.setPctSucoFruta(5.5F);
 
         Empresa empresa = new Empresa();
+        empresa.setId(0);
         empresa.setNome("Ambev");
         empresa.setCnpj("123456701234");
         empresa.setAnoFundacao(1800);
 
         Fabrica fabrica1 = new Fabrica();
+        fabrica1.setId(0);
         fabrica1.setLocalizacao("Sao Carlos - SP");
         fabrica1.setTamanho("P");
         fabrica1.setDataInicializacao(LocalDate.of(2012, Month.APRIL, 20));
@@ -56,6 +62,7 @@ public class FabricaTeste implements ApplicationRunner {
         fabrica1.setBebidas(List.of(cerveja, refrigerante));
 
         Fabrica fabrica2 = new Fabrica();
+        fabrica2.setId(1);
         fabrica2.setLocalizacao("Santa Lucia - SP");
         fabrica2.setTamanho("PP");
         fabrica2.setDataInicializacao(LocalDate.of(2095, Month.JUNE, 30));
@@ -63,14 +70,15 @@ public class FabricaTeste implements ApplicationRunner {
         fabrica2.setBebidas(List.of(cerveja, suco));
 
         Fabrica fabrica3 = new Fabrica();
+        fabrica3.setId(2);
         fabrica3.setLocalizacao("Fortaleza - CE");
         fabrica3.setTamanho("M");
         fabrica3.setDataInicializacao(LocalDate.of(2022, Month.NOVEMBER, 22));
         fabrica3.setEmpresa(empresa);
         fabrica3.setBebidas(List.of(cerveja, refrigerante, suco));
 
-        List.of(fabrica1, fabrica2, fabrica3)
-            .stream().map(fabrica -> "Fabrica - " + fabrica)
-            .forEach(System.out::println);
+        List
+            .of(fabrica1, fabrica2, fabrica3)
+            .forEach(FabricaController::incluir);
     }
 }

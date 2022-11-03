@@ -2,9 +2,14 @@ package br.edu.infnet.appfabricabebidas.model.domain;
 
 public abstract class Bebida {
 
+    private Integer id;
     private String nome;
     private String descricao;
     private Float valor;
+
+    public Integer getId() {
+        return id;
+    }
 
     public String getNome() {
         return nome;
@@ -16,6 +21,10 @@ public abstract class Bebida {
 
     public Float getValor() {
         return valor;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setNome(String nome) {
@@ -32,6 +41,6 @@ public abstract class Bebida {
 
     @Override
     public String toString() {
-        return nome + ";" + descricao + ";" + valor;
+        return id + ";" + nome + ";" + descricao + ";" + valor;
     }
 }

@@ -1,5 +1,6 @@
 package br.edu.infnet.appfabricabebidas;
 
+import br.edu.infnet.appfabricabebidas.controller.SucoController;
 import br.edu.infnet.appfabricabebidas.model.domain.Suco;
 import java.util.List;
 import org.springframework.boot.ApplicationArguments;
@@ -14,6 +15,7 @@ public class SucoTeste implements ApplicationRunner {
         System.out.println("Cadastro de Suco: ");
 
         Suco suco1 = new Suco();
+        suco1.setId(0);
         suco1.setNome("Del Valle Laranja");
         suco1.setDescricao("Laranja?");
         suco1.setValor(6F);
@@ -22,6 +24,7 @@ public class SucoTeste implements ApplicationRunner {
         suco1.setPctSucoFruta(5.5F);
 
         Suco suco2 = new Suco();
+        suco2.setId(1);
         suco2.setNome("Del Valle Uva");
         suco2.setDescricao("Suco. Nao vinho.");
         suco2.setValor(6.5F);
@@ -30,6 +33,7 @@ public class SucoTeste implements ApplicationRunner {
         suco2.setPctSucoFruta(6.2F);
 
         Suco suco3 = new Suco();
+        suco3.setId(2);
         suco3.setNome("Del Valle Manga");
         suco3.setDescricao("Existe?");
         suco3.setValor(5.8F);
@@ -37,8 +41,8 @@ public class SucoTeste implements ApplicationRunner {
         suco3.setAdicaoAcucar(false);
         suco3.setPctSucoFruta(5.2F);
 
-        List.of(suco1, suco2, suco3)
-            .stream().map(suco -> "Suco - " + suco)
-            .forEach(System.out::println);
+        List
+            .of(suco1, suco2, suco3)
+            .forEach(SucoController::incluir);
     }
 }

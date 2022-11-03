@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Fabrica {
 
+    private Integer id;
     private String localizacao;
     private LocalDate dataInicializacao;
     private String tamanho;
@@ -17,6 +18,10 @@ public class Fabrica {
 
     public Fabrica(Empresa empresa) {
         setEmpresa(empresa);
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getLocalizacao() {
@@ -37,6 +42,10 @@ public class Fabrica {
 
     public List<Bebida> getBebidas() {
         return bebidas;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setLocalizacao(String localizacao) {
@@ -61,6 +70,6 @@ public class Fabrica {
 
     @Override
     public String toString() {
-        return localizacao + ";" + dataInicializacao + ";" + tamanho + ";" + empresa + ";" + bebidas.size();
+        return id + ";" + localizacao + ";" + dataInicializacao + ";" + tamanho + ";" + empresa + ";" + bebidas.size();
     }
 }

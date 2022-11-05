@@ -1,9 +1,6 @@
 package br.edu.infnet.appfabricabebidas.controller;
 
-import br.edu.infnet.appfabricabebidas.model.domain.Bebida;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import br.edu.infnet.appfabricabebidas.model.service.BebidaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,31 +9,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class BebidaController {
 
-    private static final Map<Integer, Bebida> BEBIDAS = new HashMap<>();
-    private static Integer id = 0;
+    private final BebidaService bebidaService;
 
-    public static void incluir(Bebida bebida) {
-        BEBIDAS.put(id++, bebida);
-    }
-
-    public static void excluir(Integer id) {
-        BEBIDAS.remove(id);
-    }
-
-    public static Collection<Bebida> listar() {
-        return BEBIDAS.values();
+    public BebidaController(BebidaService bebidaService) {
+        this.bebidaService = bebidaService;
     }
 
     @GetMapping(value = "/bebidas")
     public String lista(Model model) {
-        model.addAttribute("lista", listar());
+        model.addAttribute("lista", bebidaService.listar());
 
         return "bebida/lista";
     }
 
     @GetMapping(value = "/bebidas/{id}/excluir")
     public String exclui(@PathVariable Integer id) {
-        excluir(id);
+        bebidaService.excluir(id);
         return "redirect:/bebidas";
     }
 }

@@ -1,7 +1,7 @@
 package br.edu.infnet.appfabricabebidas;
 
-import br.edu.infnet.appfabricabebidas.controller.CervejaController;
 import br.edu.infnet.appfabricabebidas.model.domain.Cerveja;
+import br.edu.infnet.appfabricabebidas.model.service.CervejaService;
 import java.util.List;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -9,6 +9,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CervejaTeste implements ApplicationRunner {
+
+    private final CervejaService cervejaService;
+
+    public CervejaTeste(CervejaService cervejaService) {
+        this.cervejaService = cervejaService;
+    }
 
     @Override
     public void run(ApplicationArguments args) {
@@ -43,6 +49,6 @@ public class CervejaTeste implements ApplicationRunner {
 
         List<Cerveja> cervejas = List.of(cerveja1, cerveja2, cerveja3);
         cervejas.forEach(System.out::println);
-        cervejas.forEach(CervejaController::incluir);
+        cervejas.forEach(cervejaService::incluir);
     }
 }

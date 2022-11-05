@@ -6,6 +6,7 @@ import br.edu.infnet.appfabricabebidas.model.domain.Fabrica;
 import br.edu.infnet.appfabricabebidas.model.domain.Malote;
 import br.edu.infnet.appfabricabebidas.model.domain.Refrigerante;
 import br.edu.infnet.appfabricabebidas.model.domain.Suco;
+import br.edu.infnet.appfabricabebidas.model.service.MaloteService;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -81,7 +82,9 @@ public class MaloteTeste implements ApplicationRunner {
         malote3.setBebidas(List.of(cerveja, refrigerante, suco));
 
         List<Malote> malotes = List.of(malote1, malote2, malote3);
+        MaloteService maloteService = new MaloteService();
+
         malotes.forEach(System.out::println);
-        malotes.forEach(MaloteController::incluir);
+        malotes.forEach(maloteService::incluir);
     }
 }

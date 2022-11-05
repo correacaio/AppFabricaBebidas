@@ -1,7 +1,7 @@
 package br.edu.infnet.appfabricabebidas;
 
-import br.edu.infnet.appfabricabebidas.controller.SucoController;
 import br.edu.infnet.appfabricabebidas.model.domain.Suco;
+import br.edu.infnet.appfabricabebidas.model.service.SucoService;
 import java.util.List;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -9,6 +9,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SucoTeste implements ApplicationRunner {
+
+    private final SucoService sucoService;
+
+    public SucoTeste(SucoService sucoService) {
+        this.sucoService = sucoService;
+    }
 
     @Override
     public void run(ApplicationArguments args) {
@@ -43,6 +49,6 @@ public class SucoTeste implements ApplicationRunner {
 
         List<Suco> sucos = List.of(suco1, suco2, suco3);
         sucos.forEach(System.out::println);
-        sucos.forEach(SucoController::incluir);
+        sucos.forEach(sucoService::incluir);
     }
 }

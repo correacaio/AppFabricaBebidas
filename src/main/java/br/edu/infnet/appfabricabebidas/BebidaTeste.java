@@ -1,10 +1,10 @@
 package br.edu.infnet.appfabricabebidas;
 
-import br.edu.infnet.appfabricabebidas.controller.BebidaController;
 import br.edu.infnet.appfabricabebidas.model.domain.Bebida;
 import br.edu.infnet.appfabricabebidas.model.domain.Cerveja;
 import br.edu.infnet.appfabricabebidas.model.domain.Refrigerante;
 import br.edu.infnet.appfabricabebidas.model.domain.Suco;
+import br.edu.infnet.appfabricabebidas.model.service.BebidaService;
 import java.util.List;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -12,6 +12,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class BebidaTeste implements ApplicationRunner {
+
+    private final BebidaService bebidaService;
+
+    public BebidaTeste(BebidaService bebidaService) {
+        this.bebidaService = bebidaService;
+    }
 
     @Override
     public void run(ApplicationArguments args) {
@@ -46,6 +52,6 @@ public class BebidaTeste implements ApplicationRunner {
 
         List<Bebida> bebidas = List.of(cerveja, refrigerante, suco);
         bebidas.forEach(System.out::println);
-        bebidas.forEach(BebidaController::incluir);
+        bebidas.forEach(bebidaService::incluir);
     }
 }

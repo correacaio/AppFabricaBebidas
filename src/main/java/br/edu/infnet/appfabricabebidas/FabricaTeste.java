@@ -1,7 +1,7 @@
 package br.edu.infnet.appfabricabebidas;
 
-import br.edu.infnet.appfabricabebidas.controller.FabricaController;
 import br.edu.infnet.appfabricabebidas.model.domain.Fabrica;
+import br.edu.infnet.appfabricabebidas.model.service.FabricaService;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
@@ -11,6 +11,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FabricaTeste implements ApplicationRunner {
+
+    private final FabricaService fabricaService;
+
+    public FabricaTeste(FabricaService fabricaService) {
+        this.fabricaService = fabricaService;
+    }
 
     @Override
     public void run(ApplicationArguments args) {
@@ -36,6 +42,6 @@ public class FabricaTeste implements ApplicationRunner {
 
         List<Fabrica> fabricas = List.of(fabrica1, fabrica2, fabrica3);
         fabricas.forEach(System.out::println);
-        fabricas.forEach(FabricaController::incluir);
+        fabricas.forEach(fabricaService::incluir);
     }
 }

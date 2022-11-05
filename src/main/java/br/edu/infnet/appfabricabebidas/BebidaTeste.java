@@ -26,7 +26,7 @@ public class BebidaTeste implements ApplicationRunner {
         cerveja.setFamilia("Lager");
 
         Refrigerante refrigerante = new Refrigerante();
-        cerveja.setId(1);
+        refrigerante.setId(1);
         refrigerante.setNome("Coca Cola");
         refrigerante.setDescricao("Classico");
         refrigerante.setValor(8F);
@@ -35,7 +35,7 @@ public class BebidaTeste implements ApplicationRunner {
         refrigerante.setSabor("Coca");
 
         Suco suco = new Suco();
-        cerveja.setId(2);
+        suco.setId(2);
         suco.setNome("Del Valle Laranja");
         suco.setDescricao("Laranja?");
         suco.setValor(6F);

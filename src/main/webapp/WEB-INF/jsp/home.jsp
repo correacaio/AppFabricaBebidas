@@ -16,8 +16,8 @@
                 <a class="navbar-brand" href="#">App Fabrica Bebidas</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/fabricas">Fabricas</a></li>
-                <li><a href="/empresas">Empresas</a></li>
+                <li class="active"><a href="/malotes">Malotes</a></li>
+                <li><a href="/fabricas">Fabricas</a></li>
                 <li><a href="/bebidas">Bebidas</a></li>
                 <li><a href="/cervejas">Cervejas</a></li>
                 <li><a href="/refrigerantes">Refrigerantes</a></li>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cadastro de Empresas</title>
+    <title>Cadastro de Fabricas</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -15,18 +15,22 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Nome</th>
-                <th scope="col">CNPJ</th>
-                <th scope="col">Ano Fundacao</th>
+                <th scope="col">Status</th>
+                <th scope="col">Data Solicitação</th>
+                <th scope="col">Data Conclusão</th>
+                <th scope="col">Fabrica</th>
+                <th scope="col">Valor Total</th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="elemento" items="${lista}">
+            <c:forEach var="elemento" items="${lista}" varStatus="loop">
                 <tr>
                     <th scope="row">${elemento.id}</th>
-                    <td>${elemento.nome}</td>
-                    <td>${elemento.cnpj}</td>
-                    <td>${elemento.anoFundacao}</td>
+                    <td>${elemento.status}</td>
+                    <td>${elemento.dataSolicitacao}</td>
+                    <td>${elemento.dataConclusao}</td>
+                    <td>${elemento.fabrica.id}</td>
+                    <td>${elemento.valorTotal}</td>
                 </tr>
             </c:forEach>
         </tbody>

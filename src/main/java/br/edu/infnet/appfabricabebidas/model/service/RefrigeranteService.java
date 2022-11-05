@@ -1,29 +1,32 @@
 package br.edu.infnet.appfabricabebidas.model.service;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Refrigerante;
+import br.edu.infnet.appfabricabebidas.model.repository.RefrigeranteRepository;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RefrigeranteService {
 
-    private static final Map<Integer, Refrigerante> REFRIGERANTES = new HashMap<>();
+    private final RefrigeranteRepository refrigeranteRepository;
+
+    public RefrigeranteService(RefrigeranteRepository refrigeranteRepository) {
+        this.refrigeranteRepository = refrigeranteRepository;
+    }
 
     public void incluir(Refrigerante refrigerante) {
-        REFRIGERANTES.put(refrigerante.getId(), refrigerante);
+        refrigeranteRepository.save(refrigerante);
     }
 
     public void excluir(Integer id) {
-        REFRIGERANTES.remove(id);
+        refrigeranteRepository.deleteById(id);
     }
 
     public Collection<Refrigerante> listar() {
-        return REFRIGERANTES.values();
+        return (Collection<Refrigerante>) refrigeranteRepository.findAll();
     }
 
     public Refrigerante obter(Integer id) {
-        return REFRIGERANTES.get(id);
+        return refrigeranteRepository.findById(id).orElse(null);
     }
 }

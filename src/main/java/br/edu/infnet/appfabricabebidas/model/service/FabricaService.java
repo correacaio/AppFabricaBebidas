@@ -1,29 +1,32 @@
 package br.edu.infnet.appfabricabebidas.model.service;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Fabrica;
+import br.edu.infnet.appfabricabebidas.model.repository.FabricaRepository;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.stereotype.Service;
 
 @Service
 public class FabricaService {
 
-    private static final Map<Integer, Fabrica> FABRICAS = new HashMap<>();
+    private final FabricaRepository fabricaRepository;
+
+    public FabricaService(FabricaRepository fabricaRepository) {
+        this.fabricaRepository = fabricaRepository;
+    }
 
     public void incluir(Fabrica fabrica) {
-        FABRICAS.put(fabrica.getId(), fabrica);
+        fabricaRepository.save(fabrica);
     }
 
     public void excluir(Integer id) {
-        FABRICAS.remove(id);
+        fabricaRepository.deleteById(id);
     }
 
     public Collection<Fabrica> listar() {
-        return FABRICAS.values();
+        return (Collection<Fabrica>) fabricaRepository.findAll();
     }
 
     public Fabrica obter(Integer id) {
-        return FABRICAS.get(id);
+        return fabricaRepository.findById(id).orElse(null);
     }
 }

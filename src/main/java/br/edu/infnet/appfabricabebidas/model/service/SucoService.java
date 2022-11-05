@@ -1,29 +1,32 @@
 package br.edu.infnet.appfabricabebidas.model.service;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Suco;
+import br.edu.infnet.appfabricabebidas.model.repository.SucoRepository;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SucoService {
 
-    private static final Map<Integer, Suco> SUCOS = new HashMap<>();
+    private final SucoRepository sucoRepository;
+
+    public SucoService(SucoRepository sucoRepository) {
+        this.sucoRepository = sucoRepository;
+    }
 
     public void incluir(Suco suco) {
-        SUCOS.put(suco.getId(), suco);
+        sucoRepository.save(suco);
     }
 
     public void excluir(Integer id) {
-        SUCOS.remove(id);
+        sucoRepository.deleteById(id);
     }
 
     public Collection<Suco> listar() {
-        return SUCOS.values();
+        return (Collection<Suco>) sucoRepository.findAll();
     }
 
     public Suco obter(Integer id) {
-        return SUCOS.get(id);
+        return sucoRepository.findById(id).orElse(null);
     }
 }

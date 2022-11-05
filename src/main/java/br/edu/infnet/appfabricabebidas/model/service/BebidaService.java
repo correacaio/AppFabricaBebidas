@@ -1,29 +1,32 @@
 package br.edu.infnet.appfabricabebidas.model.service;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Bebida;
+import br.edu.infnet.appfabricabebidas.model.repository.BebidaRepository;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BebidaService {
 
-    private static final Map<Integer, Bebida> BEBIDAS = new HashMap<>();
+    private final BebidaRepository bebidaRepository;
+
+    public BebidaService(BebidaRepository bebidaRepository) {
+        this.bebidaRepository = bebidaRepository;
+    }
 
     public void incluir(Bebida bebida) {
-        BEBIDAS.put(bebida.getId(), bebida);
+        bebidaRepository.save(bebida);
     }
 
     public void excluir(Integer id) {
-        BEBIDAS.remove(id);
+        bebidaRepository.deleteById(id);
     }
 
     public Collection<Bebida> listar() {
-        return BEBIDAS.values();
+        return (Collection<Bebida>) bebidaRepository.findAll();
     }
 
     public Bebida obter(Integer id) {
-        return BEBIDAS.get(id);
+        return bebidaRepository.findById(id).orElse(null);
     }
 }

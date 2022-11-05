@@ -1,5 +1,10 @@
 package br.edu.infnet.appfabricabebidas.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Cerveja extends Bebida {
 
     private String tipo;

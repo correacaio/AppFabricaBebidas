@@ -2,9 +2,18 @@ package br.edu.infnet.appfabricabebidas.model.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+//@Entity
+//@Table
 public class Malote {
 
+//    @Id
+//    @GeneratedValue(strategy = IDENTITY)
     private Integer id;
     private String status;
     private LocalDateTime dataSolicitacao;

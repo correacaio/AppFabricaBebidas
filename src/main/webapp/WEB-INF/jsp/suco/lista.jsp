@@ -11,6 +11,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">App Fabrica Bebidas</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/malotes">Malotes</a></li>
+                <li><a href="/fabricas">Fabricas</a></li>
+                <li><a href="/bebidas">Bebidas</a></li>
+                <li><a href="/cervejas">Cervejas</a></li>
+                <li><a href="/refrigerantes">Refrigerantes</a></li>
+                <li class="active"><a href="/sucos">Sucos</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -21,6 +40,7 @@
                 <th scope="col">Fruta</th>
                 <th scope="col">Adição de Açucar</th>
                 <th scope="col">% Suco</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +53,7 @@
                     <td>${elemento.fruta}</td>
                     <td>${elemento.adicaoAcucar}</td>
                     <td>${elemento.pctSucoFruta}</td>
+                    <td><a href="/sucos/${elemento.id}/excluir">excluir</a></td>
                 </tr>
             </c:forEach>
         </tbody>

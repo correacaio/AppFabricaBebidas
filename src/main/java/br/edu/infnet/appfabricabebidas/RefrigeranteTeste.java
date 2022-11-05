@@ -41,8 +41,8 @@ public class RefrigeranteTeste implements ApplicationRunner {
         refrigerante3.setGramasAcucar(80);
         refrigerante3.setSabor("Coca");
 
-        List
-            .of(refrigerante1, refrigerante2, refrigerante3)
-            .forEach(RefrigeranteController::incluir);
+        List<Refrigerante> refrigerantes = List.of(refrigerante1, refrigerante2, refrigerante3);
+        refrigerantes.forEach(System.out::println);
+        refrigerantes.forEach(RefrigeranteController::incluir);
     }
 }

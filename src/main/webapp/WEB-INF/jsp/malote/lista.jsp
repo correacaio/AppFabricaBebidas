@@ -11,6 +11,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">App Fabrica Bebidas</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/malotes">Malotes</a></li>
+                <li><a href="/fabricas">Fabricas</a></li>
+                <li><a href="/bebidas">Bebidas</a></li>
+                <li><a href="/cervejas">Cervejas</a></li>
+                <li><a href="/refrigerantes">Refrigerantes</a></li>
+                <li><a href="/sucos">Sucos</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -20,6 +39,7 @@
                 <th scope="col">Data Conclusão</th>
                 <th scope="col">Fabrica</th>
                 <th scope="col">Valor Total</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +51,7 @@
                     <td>${elemento.dataConclusao}</td>
                     <td>${elemento.fabrica.id}</td>
                     <td>${elemento.valorTotal}</td>
+                    <td><a href="/malotes/${elemento.id}/excluir">excluir</a></td>
                 </tr>
             </c:forEach>
         </tbody>

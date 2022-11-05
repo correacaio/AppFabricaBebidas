@@ -1,6 +1,7 @@
 package br.edu.infnet.appfabricabebidas;
 
 import br.edu.infnet.appfabricabebidas.controller.BebidaController;
+import br.edu.infnet.appfabricabebidas.model.domain.Bebida;
 import br.edu.infnet.appfabricabebidas.model.domain.Cerveja;
 import br.edu.infnet.appfabricabebidas.model.domain.Refrigerante;
 import br.edu.infnet.appfabricabebidas.model.domain.Suco;
@@ -43,8 +44,8 @@ public class BebidaTeste implements ApplicationRunner {
         suco.setAdicaoAcucar(true);
         suco.setPctSucoFruta(5.5F);
 
-        List
-            .of(cerveja, refrigerante, suco)
-            .forEach(BebidaController::incluir);
+        List<Bebida> bebidas = List.of(cerveja, refrigerante, suco);
+        bebidas.forEach(System.out::println);
+        bebidas.forEach(BebidaController::incluir);
     }
 }

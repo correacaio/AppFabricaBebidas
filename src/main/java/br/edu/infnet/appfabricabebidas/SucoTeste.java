@@ -41,8 +41,8 @@ public class SucoTeste implements ApplicationRunner {
         suco3.setAdicaoAcucar(false);
         suco3.setPctSucoFruta(5.2F);
 
-        List
-            .of(suco1, suco2, suco3)
-            .forEach(SucoController::incluir);
+        List<Suco> sucos = List.of(suco1, suco2, suco3);
+        sucos.forEach(System.out::println);
+        sucos.forEach(SucoController::incluir);
     }
 }

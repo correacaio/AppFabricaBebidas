@@ -80,8 +80,8 @@ public class MaloteTeste implements ApplicationRunner {
         malote3.setFabrica(fabrica);
         malote3.setBebidas(List.of(cerveja, refrigerante, suco));
 
-        List
-            .of(malote1, malote2, malote3)
-            .forEach(MaloteController::incluir);
+        List<Malote> malotes = List.of(malote1, malote2, malote3);
+        malotes.forEach(System.out::println);
+        malotes.forEach(MaloteController::incluir);
     }
 }

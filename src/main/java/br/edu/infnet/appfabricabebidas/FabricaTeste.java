@@ -34,8 +34,8 @@ public class FabricaTeste implements ApplicationRunner {
         fabrica3.setCnpj("13131313131313");
         fabrica3.setDataCriacao(LocalDate.of(2022, Month.NOVEMBER, 22));
 
-        List
-            .of(fabrica1, fabrica2, fabrica3)
-            .forEach(FabricaController::incluir);
+        List<Fabrica> fabricas = List.of(fabrica1, fabrica2, fabrica3);
+        fabricas.forEach(System.out::println);
+        fabricas.forEach(FabricaController::incluir);
     }
 }

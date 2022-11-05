@@ -41,8 +41,8 @@ public class CervejaTeste implements ApplicationRunner {
         cerveja3.setPctAlcool(5.5F);
         cerveja3.setFamilia("Ale");
 
-        List
-            .of(cerveja1, cerveja2, cerveja3)
-            .forEach(CervejaController::incluir);
+        List<Cerveja> cervejas = List.of(cerveja1, cerveja2, cerveja3);
+        cervejas.forEach(System.out::println);
+        cervejas.forEach(CervejaController::incluir);
     }
 }

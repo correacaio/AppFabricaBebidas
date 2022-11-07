@@ -18,6 +18,8 @@ public class MaloteController {
     @GetMapping(value = "/malotes")
     public String listar(Model model) {
         model.addAttribute("lista", maloteService.listar());
+        model.addAttribute("foco", "malotes");
+
         return "malote/lista";
     }
 

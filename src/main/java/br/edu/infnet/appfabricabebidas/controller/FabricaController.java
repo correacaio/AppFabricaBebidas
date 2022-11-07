@@ -18,6 +18,8 @@ public class FabricaController {
     @GetMapping(value = "/fabricas")
     public String listar(Model model) {
         model.addAttribute("lista", fabricaService.listar());
+        model.addAttribute("foco", "fabricas");
+
         return "fabrica/lista";
     }
 

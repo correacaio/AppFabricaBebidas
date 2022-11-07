@@ -14,12 +14,8 @@
     <c:import url="../menu.jsp"/>
 
     <div class="container">
-        <h2>Cadastro de Usuario</h2>
-        <form action="/usuarios" method="post">
-            <div class="form-group">
-                <label>Nome:</label>
-                <input type="text" class="form-control" placeholder="Preencha o nome" name="nome">
-            </div>
+        <h2>Acesso</h2>
+        <form action="/usuarios:acesso" method="post">
             <div class="form-group">
                 <label>Email:</label>
                 <input type="email" class="form-control" placeholder="Preencha o email" name="email">
@@ -28,10 +24,8 @@
                 <label>Senha:</label>
                 <input type="password" class="form-control" placeholder="Preencha a senha" name="senha">
             </div>
-            <button type="submit" class="btn btn-default">Cadastrar</button>
+            <button type="submit" class="btn btn-default">Acessar</button>
         </form>
     </div>
-
-
 </body>
 </html>

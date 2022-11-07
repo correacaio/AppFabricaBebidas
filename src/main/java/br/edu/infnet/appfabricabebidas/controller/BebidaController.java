@@ -18,6 +18,7 @@ public class BebidaController {
     @GetMapping(value = "/bebidas")
     public String listar(Model model) {
         model.addAttribute("lista", bebidaService.listar());
+        model.addAttribute("foco", "bebidas");
 
         return "bebida/lista";
     }

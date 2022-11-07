@@ -18,6 +18,8 @@ public class SucoController {
     @GetMapping(value = "/sucos")
     public String listar(Model model) {
         model.addAttribute("lista", sucoService.listar());
+        model.addAttribute("foco", "sucos");
+
         return "suco/lista";
     }
 

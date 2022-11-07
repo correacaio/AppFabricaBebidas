@@ -18,6 +18,8 @@ public class CervejaController {
     @GetMapping(value = "/cervejas")
     public String listar(Model model) {
         model.addAttribute("lista", cervejaService.listar());
+        model.addAttribute("foco", "cervejas");
+
         return "cerveja/lista";
     }
 

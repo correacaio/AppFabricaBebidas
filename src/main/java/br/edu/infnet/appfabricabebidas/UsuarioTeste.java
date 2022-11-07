@@ -2,7 +2,6 @@ package br.edu.infnet.appfabricabebidas;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Usuario;
 import br.edu.infnet.appfabricabebidas.model.service.UsuarioService;
-import java.util.List;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -20,24 +19,12 @@ public class UsuarioTeste implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         System.out.println("Cadastro de Usuario:");
 
-        Usuario usuario1 = new Usuario();
-        usuario1.setNome("Usuario 1");
-        usuario1.setEmail("usuario@ambev.com.br");
-        usuario1.setSenha("123");
+        Usuario usuario = new Usuario();
+        usuario.setNome("Usuario");
+        usuario.setEmail("usuario@email.com");
+        usuario.setSenha("123");
 
-        Usuario usuario2 = new Usuario();
-        usuario2.setNome("Usuario 2");
-        usuario2.setEmail("email@heineken.com.br");
-        usuario2.setSenha("234");
-
-
-        Usuario usuario3 = new Usuario();
-        usuario3.setNome("Usuario 3");
-        usuario3.setEmail("email@hocuspocus.com.br");
-        usuario3.setSenha("345");
-
-        List<Usuario> usuarios = List.of(usuario1, usuario2, usuario3);
-        usuarios.forEach(System.out::println);
-        usuarios.forEach(usuarioService::incluir);
+        System.out.println(usuario);
+        usuarioService.incluir(usuario);
     }
 }

@@ -29,4 +29,15 @@ public class UsuarioService {
     public Usuario obter(Integer id) {
         return usuarioRepository.findById(id).orElse(null);
     }
+
+    public Usuario obter(String email, String senha) {
+        Usuario usuario = usuarioRepository.findByEmail(email).orElse(null);
+
+        if (usuario != null && usuario.getSenha().equals(senha)) {
+
+            return usuario;
+        }
+
+        return null;
+    }
 }

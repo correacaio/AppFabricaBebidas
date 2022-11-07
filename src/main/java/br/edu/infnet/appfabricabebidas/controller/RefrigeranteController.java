@@ -18,6 +18,8 @@ public class RefrigeranteController {
     @GetMapping(value = "/refrigerantes")
     public String listar(Model model) {
         model.addAttribute("lista", refrigeranteService.listar());
+        model.addAttribute("foco", "refrigerantes");
+
         return "refrigerante/lista";
     }
 

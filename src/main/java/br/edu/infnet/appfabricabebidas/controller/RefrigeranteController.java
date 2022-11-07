@@ -16,13 +16,13 @@ public class RefrigeranteController {
     }
 
     @GetMapping(value = "/refrigerantes")
-    public String lista(Model model) {
+    public String listar(Model model) {
         model.addAttribute("lista", refrigeranteService.listar());
         return "refrigerante/lista";
     }
 
     @GetMapping(value = "/refrigerantes/{id}/excluir")
-    public String exclui(@PathVariable Integer id) {
+    public String excluir(@PathVariable Integer id) {
         refrigeranteService.excluir(id);
         return "redirect:/refrigerantes";
     }

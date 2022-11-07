@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -14,9 +14,10 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">App Fabrica Bebidas</a>
+                <a class="navbar-brand" href="/">App Fabrica Bebidas</a>
             </div>
             <ul class="nav navbar-nav">
+                <li><a href="/usuarios">Usuarios</a></li>
                 <li class="active"><a href="/malotes">Malotes</a></li>
                 <li><a href="/fabricas">Fabricas</a></li>
                 <li><a href="/bebidas">Bebidas</a></li>

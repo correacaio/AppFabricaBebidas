@@ -4,10 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import static javax.persistence.InheritanceType.JOINED;
 import javax.persistence.Table;
 
 @Entity
 @Table
+@Inheritance(strategy = JOINED)
 public abstract class Bebida {
 
     @Id

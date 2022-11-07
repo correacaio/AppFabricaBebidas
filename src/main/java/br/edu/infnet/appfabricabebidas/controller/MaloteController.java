@@ -16,13 +16,13 @@ public class MaloteController {
     }
 
     @GetMapping(value = "/malotes")
-    public String lista(Model model) {
+    public String listar(Model model) {
         model.addAttribute("lista", maloteService.listar());
         return "malote/lista";
     }
 
     @GetMapping(value = "/malotes/{id}/excluir")
-    public String exclui(@PathVariable Integer id) {
+    public String excluir(@PathVariable Integer id) {
         maloteService.excluir(id);
         return "redirect:/malotes";
     }

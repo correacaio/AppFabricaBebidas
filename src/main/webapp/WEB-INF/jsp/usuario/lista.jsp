@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cadastro de Bebidas</title>
+    <title>Cadastro de Empresas</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,10 +17,10 @@
                 <a class="navbar-brand" href="/">App Fabrica Bebidas</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/usuarios">Usuarios</a></li>
+                <li class="active"><a href="/usuarios">Usuarios</a></li>
                 <li><a href="/malotes">Malotes</a></li>
                 <li><a href="/fabricas">Fabricas</a></li>
-                <li class="active"><a href="/bebidas">Bebidas</a></li>
+                <li><a href="/bebidas">Bebidas</a></li>
                 <li><a href="/cervejas">Cervejas</a></li>
                 <li><a href="/refrigerantes">Refrigerantes</a></li>
                 <li><a href="/sucos">Sucos</a></li>
@@ -36,8 +36,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Valor</th>
+                <th scope="col">Email</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -46,9 +45,8 @@
                 <tr>
                     <th scope="row">${elemento.id}</th>
                     <td>${elemento.nome}</td>
-                    <td>${elemento.descricao}</td>
-                    <td>${elemento.valor}</td>
-                    <td><a href="/bebidas/${elemento.id}/excluir">excluir</a></td>
+                    <td>${elemento.email}</td>
+                    <td><a href="/fabricas/${elemento.id}/excluir">excluir</a></td>
                 </tr>
             </c:forEach>
         </tbody>

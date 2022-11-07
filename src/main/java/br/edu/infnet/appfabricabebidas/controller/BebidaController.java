@@ -16,14 +16,14 @@ public class BebidaController {
     }
 
     @GetMapping(value = "/bebidas")
-    public String lista(Model model) {
+    public String listar(Model model) {
         model.addAttribute("lista", bebidaService.listar());
 
         return "bebida/lista";
     }
 
     @GetMapping(value = "/bebidas/{id}/excluir")
-    public String exclui(@PathVariable Integer id) {
+    public String excluir(@PathVariable Integer id) {
         bebidaService.excluir(id);
         return "redirect:/bebidas";
     }

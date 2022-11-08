@@ -14,6 +14,8 @@
     <c:import url="../menu.jsp"/>
 
     <c:if test="${not empty usuario}">
+        <h4><a href="/cervejas/cadastrar">Nova Cerveja</a></h4>
+
         <table class="table table-striped">
             <thead>
                 <tr>

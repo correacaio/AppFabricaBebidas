@@ -6,6 +6,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import static javax.persistence.InheritanceType.JOINED;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +20,9 @@ public abstract class Bebida {
     private String nome;
     private String descricao;
     private Float valor;
+
+    @ManyToOne
+    private Usuario usuario;
 
     public Integer getId() {
         return id;
@@ -50,6 +54,14 @@ public abstract class Bebida {
 
     public void setValor(Float valor) {
         this.valor = valor;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override

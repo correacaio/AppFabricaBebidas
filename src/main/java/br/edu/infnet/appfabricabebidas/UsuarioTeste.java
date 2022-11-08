@@ -4,9 +4,11 @@ import br.edu.infnet.appfabricabebidas.model.domain.Usuario;
 import br.edu.infnet.appfabricabebidas.model.service.UsuarioService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
+@Order(1)
 public class UsuarioTeste implements ApplicationRunner {
 
     private final UsuarioService usuarioService;
@@ -21,8 +23,8 @@ public class UsuarioTeste implements ApplicationRunner {
 
         Usuario usuario = new Usuario();
         usuario.setNome("Usuario");
-        usuario.setEmail("usuario@email.com");
-        usuario.setSenha("123");
+        usuario.setEmail("admin@admin.com");
+        usuario.setSenha("admin");
 
         System.out.println(usuario);
         usuarioService.incluir(usuario);

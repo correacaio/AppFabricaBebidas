@@ -1,13 +1,16 @@
 package br.edu.infnet.appfabricabebidas;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Suco;
+import br.edu.infnet.appfabricabebidas.model.domain.Usuario;
 import br.edu.infnet.appfabricabebidas.model.service.SucoService;
 import java.util.List;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
+@Order(2)
 public class SucoTeste implements ApplicationRunner {
 
     private final SucoService sucoService;
@@ -20,6 +23,9 @@ public class SucoTeste implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         System.out.println("Cadastro de Suco: ");
 
+        Usuario usuario = new Usuario();
+        usuario.setId(1);
+
         Suco suco1 = new Suco();
         suco1.setId(0);
         suco1.setNome("Del Valle Laranja");
@@ -28,6 +34,7 @@ public class SucoTeste implements ApplicationRunner {
         suco1.setFruta("Laranja");
         suco1.setAdicaoAcucar(true);
         suco1.setPctSucoFruta(5.5F);
+        suco1.setUsuario(usuario);
 
         Suco suco2 = new Suco();
         suco2.setId(1);
@@ -37,6 +44,7 @@ public class SucoTeste implements ApplicationRunner {
         suco2.setFruta("Uva");
         suco2.setAdicaoAcucar(true);
         suco2.setPctSucoFruta(6.2F);
+        suco2.setUsuario(usuario);
 
         Suco suco3 = new Suco();
         suco3.setId(2);
@@ -46,6 +54,7 @@ public class SucoTeste implements ApplicationRunner {
         suco3.setFruta("Manga");
         suco3.setAdicaoAcucar(false);
         suco3.setPctSucoFruta(5.2F);
+        suco2.setUsuario(usuario);
 
         List<Suco> sucos = List.of(suco1, suco2, suco3);
         sucos.forEach(System.out::println);

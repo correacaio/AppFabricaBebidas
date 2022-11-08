@@ -6,21 +6,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-//@Entity
-//@Table
+@Entity
+@Table
 public class Malote {
 
-//    @Id
-//    @GeneratedValue(strategy = IDENTITY)
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
     private Integer id;
     private String status;
     private LocalDateTime dataSolicitacao;
     private LocalDateTime dataConclusao;
-    private Fabrica fabrica;
+    @Transient private Fabrica fabrica;
     private Float valorTotal;
-    private List<Bebida> bebidas;
+    @Transient private List<Bebida> bebidas;
+
+    @ManyToOne
+    private Usuario usuario;
 
     public Malote() {
         setDataSolicitacao(LocalDateTime.now());
@@ -84,6 +89,14 @@ public class Malote {
 
     public void setValorTotal(Float valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override

@@ -2,6 +2,8 @@ package br.edu.infnet.appfabricabebidas.controller;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Malote;
 import br.edu.infnet.appfabricabebidas.model.domain.Usuario;
+import br.edu.infnet.appfabricabebidas.model.service.BebidaService;
+import br.edu.infnet.appfabricabebidas.model.service.FabricaService;
 import br.edu.infnet.appfabricabebidas.model.service.MaloteService;
 import java.util.Optional;
 import org.springframework.stereotype.Controller;
@@ -15,15 +17,23 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 public class MaloteController {
 
     private final MaloteService maloteService;
+    private final FabricaService fabricaService;
+    private final BebidaService bebidaService;
 
-    public MaloteController(MaloteService maloteService) {
+    public MaloteController(
+        MaloteService maloteService,
+        FabricaService fabricaService,
+        BebidaService bebidaService
+    ) {
         this.maloteService = maloteService;
+        this.fabricaService = fabricaService;
+        this.bebidaService = bebidaService;
     }
 
     @GetMapping(value = "/malotes")
     public String listar(Model model, @SessionAttribute("usuario") Optional<Usuario> usuario) {
         if (usuario.isPresent()) {
-            model.addAttribute("lista", maloteService.listar());
+            model.addAttribute("lista", maloteService.listar(usuario.get()));
             model.addAttribute("foco", "malotes");
 
             return "malote/lista";
@@ -36,6 +46,9 @@ public class MaloteController {
     public String telaCadastro(Model model, @SessionAttribute("usuario") Optional<Usuario> usuario) {
         if (usuario.isPresent()) {
             model.addAttribute("foco", "malotes");
+            model.addAttribute("fabricas", fabricaService.listar(usuario.get()));
+            model.addAttribute("bebidas", bebidaService.listar(usuario.get()));
+
             return "malote/cadastro";
         }
 

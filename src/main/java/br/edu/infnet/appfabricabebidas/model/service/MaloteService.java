@@ -1,29 +1,37 @@
 package br.edu.infnet.appfabricabebidas.model.service;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Malote;
+import br.edu.infnet.appfabricabebidas.model.domain.Usuario;
+import br.edu.infnet.appfabricabebidas.model.repository.MaloteRepository;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MaloteService {
 
-    private static final Map<Integer, Malote> MALOTES = new HashMap<>();
+    private final MaloteRepository maloteRepository;
+
+    public MaloteService(MaloteRepository maloteRepository) {
+        this.maloteRepository = maloteRepository;
+    }
 
     public void incluir(Malote malote) {
-        MALOTES.put(malote.getId(), malote);
+        maloteRepository.save(malote);
     }
 
     public void excluir(Integer id) {
-        MALOTES.remove(id);
+        maloteRepository.deleteById(id);
     }
 
     public Collection<Malote> listar() {
-        return MALOTES.values();
+        return (Collection<Malote>) maloteRepository.findAll();
+    }
+
+    public Collection<Malote> listar(Usuario usuario) {
+        return maloteRepository.findAllByUsuarioId(usuario.getId());
     }
 
     public Malote obter(Integer id) {
-        return MALOTES.get(id);
+        return maloteRepository.findById(id).orElse(null);
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EnderecoService {
 
-    private EnderecoClient enderecoClient;
+    private final EnderecoClient enderecoClient;
 
     public EnderecoService(EnderecoClient enderecoClient) {
         this.enderecoClient = enderecoClient;

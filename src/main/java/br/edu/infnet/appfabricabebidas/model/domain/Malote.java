@@ -2,13 +2,16 @@ package br.edu.infnet.appfabricabebidas.model.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import static javax.persistence.CascadeType.DETACH;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table
@@ -20,9 +23,15 @@ public class Malote {
     private String status;
     private LocalDateTime dataSolicitacao;
     private LocalDateTime dataConclusao;
-    @Transient private Fabrica fabrica;
+
+    @OneToOne(cascade = DETACH)
+    @JoinColumn
+    private Fabrica fabrica;
+
     private Float valorTotal;
-    @Transient private List<Bebida> bebidas;
+
+    @ManyToMany(cascade = DETACH)
+    private List<Bebida> bebidas;
 
     @ManyToOne
     private Usuario usuario;

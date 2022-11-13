@@ -1,11 +1,13 @@
 package br.edu.infnet.appfabricabebidas.model.domain;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import static javax.persistence.InheritanceType.JOINED;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -20,6 +22,9 @@ public abstract class Bebida {
     private String nome;
     private String descricao;
     private Float valor;
+
+    @ManyToMany(mappedBy = "bebidas")
+    private List<Malote> malotes;
 
     @ManyToOne
     private Usuario usuario;
@@ -62,6 +67,14 @@ public abstract class Bebida {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public List<Malote> getMalotes() {
+        return malotes;
+    }
+
+    public void setMalotes(List<Malote> malotes) {
+        this.malotes = malotes;
     }
 
     @Override

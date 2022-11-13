@@ -21,7 +21,7 @@ public class BebidaController {
     @GetMapping(value = "/bebidas")
     public String listar(Model model, @SessionAttribute("usuario") Optional<Usuario> usuario) {
         if (usuario.isPresent()) {
-            model.addAttribute("lista", bebidaService.listar());
+            model.addAttribute("lista", bebidaService.listar(usuario.get()));
             model.addAttribute("foco", "bebidas");
 
             return "bebida/lista";

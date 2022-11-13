@@ -1,6 +1,7 @@
 package br.edu.infnet.appfabricabebidas.model.service;
 
 import br.edu.infnet.appfabricabebidas.model.domain.Fabrica;
+import br.edu.infnet.appfabricabebidas.model.domain.Usuario;
 import br.edu.infnet.appfabricabebidas.model.repository.FabricaRepository;
 import java.util.Collection;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,10 @@ public class FabricaService {
 
     public Collection<Fabrica> listar() {
         return (Collection<Fabrica>) fabricaRepository.findAll();
+    }
+
+    public Collection<Fabrica> listar(Usuario usuario) {
+        return fabricaRepository.findAllByUsuarioId(usuario.getId());
     }
 
     public Fabrica obter(Integer id) {

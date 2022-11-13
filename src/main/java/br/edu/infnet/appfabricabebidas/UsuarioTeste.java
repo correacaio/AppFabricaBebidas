@@ -1,5 +1,6 @@
 package br.edu.infnet.appfabricabebidas;
 
+import br.edu.infnet.appfabricabebidas.model.domain.Endereco;
 import br.edu.infnet.appfabricabebidas.model.domain.Usuario;
 import br.edu.infnet.appfabricabebidas.model.service.UsuarioService;
 import org.springframework.boot.ApplicationArguments;
@@ -21,10 +22,19 @@ public class UsuarioTeste implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         System.out.println("Cadastro de Usuario:");
 
+        Endereco endereco = new Endereco();
+        endereco.setBairro("Bairro");
+        endereco.setCep("14825000");
+        endereco.setComplemento("Complemento");
+        endereco.setLocalidade("Localidade");
+        endereco.setUf("SP");
+        endereco.setLogradouro("Logradouro");
+
         Usuario usuario = new Usuario();
         usuario.setNome("Usuario");
         usuario.setEmail("admin@admin.com");
         usuario.setSenha("admin");
+        usuario.setEndereco(endereco);
 
         System.out.println(usuario);
         usuarioService.incluir(usuario);

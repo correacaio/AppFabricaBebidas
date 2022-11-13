@@ -23,7 +23,7 @@ public class FabricaController {
     @GetMapping(value = "/fabricas")
     public String listar(Model model, @SessionAttribute("usuario") Optional<Usuario> usuario) {
         if (usuario.isPresent()) {
-            model.addAttribute("lista", fabricaService.listar());
+            model.addAttribute("lista", fabricaService.listar(usuario.get()));
             model.addAttribute("foco", "fabricas");
 
             return "fabrica/lista";

@@ -1,9 +1,12 @@
 package br.edu.infnet.appfabricabebidas.model.domain;
 
+import static javax.persistence.CascadeType.PERSIST;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +19,10 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+
+    @OneToOne(cascade = PERSIST)
+    @JoinColumn
+    private Endereco endereco;
 
     public Integer getId() {
         return id;
@@ -47,6 +54,14 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     public String toString() {

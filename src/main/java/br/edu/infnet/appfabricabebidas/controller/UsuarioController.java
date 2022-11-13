@@ -77,4 +77,10 @@ public class UsuarioController {
         usuarioService.excluir(id);
         return "redirect:/usuarios";
     }
+
+    @PostMapping("/cep")
+    public String buscarEndereco(Model model, @RequestParam String cep) {
+        model.addAttribute("endereco", null);
+        return "usuario/cadastro";
+    }
 }

@@ -1,6 +1,6 @@
-package br.edu.infnet.appfabricabebidas.model.repository;
+package br.edu.infnet.apiusuarios.model.repository;
 
-import br.edu.infnet.appfabricabebidas.model.domain.Usuario;
+import br.edu.infnet.apiusuarios.model.domain.Usuario;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

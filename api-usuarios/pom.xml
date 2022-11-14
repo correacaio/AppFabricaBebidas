@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.edu.infnet</groupId>
-    <artifactId>app-fabrica-bebidas</artifactId>
+    <artifactId>api-usuarios</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>app-fabrica-bebidas</name>
-    <description>Projeto para gestão de fábricas de bebidas.</description>
+    <name>api-usuarios</name>
+    <description>Projeto para a gestão usuarios de fábricas de bebidas.</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -31,18 +31,6 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
         </dependency>
 
         <!-- Deixei essa dependencia para ficar fácil a troca entre postgres x mysql -->
@@ -69,12 +57,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>3.1.5</version>
         </dependency>
     </dependencies>
 

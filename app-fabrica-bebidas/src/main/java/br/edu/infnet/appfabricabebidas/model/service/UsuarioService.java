@@ -1,43 +1,32 @@
 package br.edu.infnet.appfabricabebidas.model.service;
 
+import br.edu.infnet.appfabricabebidas.client.UsuarioClient;
 import br.edu.infnet.appfabricabebidas.model.domain.Usuario;
-import br.edu.infnet.appfabricabebidas.model.repository.UsuarioRepository;
 import java.util.Collection;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UsuarioService {
 
-    private final UsuarioRepository usuarioRepository;
+    private final UsuarioClient usuarioClient;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
+    public UsuarioService(UsuarioClient usuarioClient) {
+        this.usuarioClient = usuarioClient;
     }
 
     public void incluir(Usuario usuario) {
-        usuarioRepository.save(usuario);
+        usuarioClient.incluir(usuario);
     }
 
     public void excluir(Integer id) {
-        usuarioRepository.deleteById(id);
+        usuarioClient.excluir(id);
     }
 
     public Collection<Usuario> listar() {
-        return (Collection<Usuario>) usuarioRepository.findAll();
-    }
-
-    public Usuario obter(Integer id) {
-        return usuarioRepository.findById(id).orElse(null);
+        return usuarioClient.listar();
     }
 
     public Usuario obter(String email, String senha) {
-        Usuario usuario = usuarioRepository.findByEmail(email).orElse(null);
-
-        if (usuario != null && usuario.getSenha().equals(senha)) {
-
-            return usuario;
-        }
-
-        return null;
+        return usuarioClient.acessar(email, senha);
     }
 }

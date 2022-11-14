@@ -1,8 +1,8 @@
-package br.edu.infnet.appfabricabebidas;
+package br.edu.infnet.apiusuarios;
 
-import br.edu.infnet.appfabricabebidas.model.domain.Endereco;
-import br.edu.infnet.appfabricabebidas.model.domain.Usuario;
-import br.edu.infnet.appfabricabebidas.model.service.UsuarioService;
+import br.edu.infnet.apiusuarios.model.domain.Endereco;
+import br.edu.infnet.apiusuarios.model.domain.Usuario;
+import br.edu.infnet.apiusuarios.model.service.UsuarioService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;

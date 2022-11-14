@@ -23,7 +23,7 @@ public class SucoController {
     @GetMapping(value = "/sucos")
     public String listar(Model model, @SessionAttribute("usuario") Optional<Usuario> usuario) {
         if (usuario.isPresent()) {
-            model.addAttribute("lista", sucoService.listar());
+            model.addAttribute("lista", sucoService.listar(usuario.get()));
             model.addAttribute("foco", "sucos");
 
             return "suco/lista";

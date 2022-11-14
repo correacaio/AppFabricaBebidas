@@ -23,7 +23,7 @@ public class CervejaController {
     @GetMapping(value = "/cervejas")
     public String listar(Model model, @SessionAttribute("usuario") Optional<Usuario> usuario) {
         if (usuario.isPresent()) {
-            model.addAttribute("lista", cervejaService.listar());
+            model.addAttribute("lista", cervejaService.listar(usuario.get()));
             model.addAttribute("foco", "cervejas");
 
             return "cerveja/lista";

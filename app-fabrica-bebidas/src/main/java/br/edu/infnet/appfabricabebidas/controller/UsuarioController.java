@@ -42,7 +42,7 @@ public class UsuarioController {
         return "usuario/acesso";
     }
 
-    @PostMapping(value = "/usuarios:acesso")
+    @PostMapping(value = "/usuarios/acessar")
     public String acesso(
         Model model,
         @RequestParam String email,

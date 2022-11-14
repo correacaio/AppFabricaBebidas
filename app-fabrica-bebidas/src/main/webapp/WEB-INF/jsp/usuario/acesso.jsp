@@ -15,7 +15,7 @@
 
     <div class="container">
         <h2>Acesso</h2>
-        <form action="/usuarios:acesso" method="post">
+        <form action="/usuarios/acessar" method="post">
             <div class="form-group">
                 <label>Email:</label>
                 <input type="email" class="form-control" placeholder="Preencha o email" name="email">

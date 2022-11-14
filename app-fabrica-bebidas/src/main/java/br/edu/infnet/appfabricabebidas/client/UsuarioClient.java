@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(url = "localhost:8081/api/usuarios", name = "usuarioClient")
 public interface UsuarioClient {
 
-    @PostMapping(":acesso")
+    @PostMapping("/acessar")
     Usuario acessar(@RequestParam String email, @RequestParam String senha);
 
     @GetMapping

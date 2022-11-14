@@ -23,7 +23,7 @@ public class RefrigeranteController {
     @GetMapping(value = "/refrigerantes")
     public String listar(Model model, @SessionAttribute("usuario") Optional<Usuario> usuario) {
         if (usuario.isPresent()) {
-            model.addAttribute("lista", refrigeranteService.listar());
+            model.addAttribute("lista", refrigeranteService.listar(usuario.get()));
             model.addAttribute("foco", "refrigerantes");
 
             return "refrigerante/lista";

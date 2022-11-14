@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
-@SessionAttributes("usuario")
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
@@ -29,7 +27,7 @@ public class UsuarioController {
         return usuarioService.listar();
     }
 
-    @PostMapping(":acesso")
+    @PostMapping("/acessar")
     public Usuario acessar(@RequestParam String email, @RequestParam String senha) {
         return usuarioService.obter(email, senha);
     }

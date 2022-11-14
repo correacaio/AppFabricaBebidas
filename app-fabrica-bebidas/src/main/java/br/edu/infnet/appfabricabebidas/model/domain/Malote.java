@@ -12,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table
@@ -21,7 +23,11 @@ public class Malote {
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
     private String status;
+
+    @DateTimeFormat(iso = ISO.DATE_TIME)
     private LocalDateTime dataSolicitacao;
+
+    @DateTimeFormat(iso = ISO.DATE_TIME)
     private LocalDateTime dataConclusao;
 
     @OneToOne(cascade = DETACH)

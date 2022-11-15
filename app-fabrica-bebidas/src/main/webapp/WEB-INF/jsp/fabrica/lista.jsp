@@ -22,7 +22,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">CNPJ</th>
-                    <th scope="col">Ano Fundacao</th>
+                    <th scope="col">Data Criacao</th>
                     <th scope="col"></th>
                 </tr>
             </thead>

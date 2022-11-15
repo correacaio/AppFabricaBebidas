@@ -37,6 +37,9 @@ public class UsuarioTeste implements ApplicationRunner {
         usuario.setEndereco(endereco);
 
         System.out.println(usuario);
-        usuarioService.incluir(usuario);
+
+        if (usuarioService.obter(usuario.getEmail()) == null) {
+            usuarioService.incluir(usuario);
+        }
     }
 }

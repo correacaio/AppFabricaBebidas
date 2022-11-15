@@ -7,6 +7,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table
@@ -17,7 +19,10 @@ public class Fabrica {
     private Integer id;
     private String nome;
     private String cnpj;
+
+    @DateTimeFormat(iso = ISO.DATE)
     private LocalDate dataCriacao;
+
     @ManyToOne
     private Usuario usuario;
 

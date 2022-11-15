@@ -30,6 +30,10 @@ public class UsuarioService {
         return usuarioRepository.findById(id).orElse(null);
     }
 
+    public Usuario obter(String email) {
+        return usuarioRepository.findByEmail(email).orElse(null);
+    }
+
     public Usuario obter(String email, String senha) {
         Usuario usuario = usuarioRepository.findByEmail(email).orElse(null);
 

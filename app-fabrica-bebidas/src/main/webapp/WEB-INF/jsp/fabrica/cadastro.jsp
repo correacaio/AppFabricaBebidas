@@ -25,6 +25,10 @@
                     <label>CNPJ:</label>
                     <input type="text" class="form-control" placeholder="Preencha o cnpj" name="cnpj">
                 </div>
+                <div class="form-group">
+                    <label>Data Criacao:</label>
+                    <input type="date" class="form-control" placeholder="Preencha a data de criacao" name="dataCriacao">
+                </div>
                 <button type="submit" class="btn btn-default">Cadastrar</button>
             </form>
         </div>

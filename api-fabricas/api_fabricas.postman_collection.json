@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "f9ae2b3f-9828-4296-97bc-db5a6122aa07",
+		"name": "Api Fabricas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1615082"
+	},
+	"item": [
+		{
+			"name": "Inserir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"nome\": \"Usuario\",\n        \"email\": \"caio@admin.com\",\n        \"senha\": \"admin\",\n        \"endereco\": {\n            \"cep\": \"14825000\",\n            \"logradouro\": \"Logradouro\",\n            \"complemento\": \"Complemento\",\n            \"bairro\": \"Bairro\",\n            \"localidade\": \"Localidade\",\n            \"uf\": \"SP\"\n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/fabricas",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"fabricas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/fabricas?usuarioId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"fabricas"
+					],
+					"query": [
+						{
+							"key": "usuarioId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/fabricas/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"fabricas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
